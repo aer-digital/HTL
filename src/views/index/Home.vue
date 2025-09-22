@@ -4,6 +4,8 @@ import { onMounted, ref } from 'vue';
 import Knob from '../../components/Knob.vue';
 import AutoCarousel from '../../components/AutoCarousel.vue';
 import VideoFliper from '../../components/VideoFliper.vue';
+import EagleEye3 from '../../components/EagleEye3.vue';
+import EagleEyeZhaga from '../../components/EagleEyeZhaga.vue';
 
 const name = ref();
 const email = ref();
@@ -14,8 +16,19 @@ onMounted(() => {
   // Configuração inicial do background
   if(window.innerWidth < 969) {
     document.getElementById('background').style.filter = `brightness(30%)`;
+  }else{
+    document.getElementById('background').style.filter = `brightness(40%)`;
   }
 });
+
+const hidePlaceholder = () => {
+  const placeholder = document.querySelector('.placeholder-img') as HTMLElement;
+  if (placeholder) {
+    placeholder.style.opacity = '0';
+    placeholder.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => placeholder.style.display = 'none', 500); // Remove o placeholder após a transição
+  }
+};
 
 async function enviarFormulario() {
   try {
@@ -84,10 +97,12 @@ const knobValueChange = (value: number) => {
       <div class="inner">
         <div class="logo">
           <!-- <span class="icon fa-gem"></span> -->
-          <img src="../../assets/images/logo_d9.png" alt="">
+          <img src="../../assets/images/logo_less.png" alt="">
         </div>
-        <!-- <h2 style="font-weight: 100; font-size: 25pt; text-transform: uppercase;">Engenharia e Serviços</h2> -->
-        <!-- <p>Another free + fully responsive site template by <a href="http://html5up.net">HTML5 UP</a></p> -->
+        <div class="title">
+          <h2 style="font-weight: 600; font-size: 1.6rem; text-transform: uppercase;">Engenharia e Serviços</h2>
+          <p style="line-height: 1.3; color: #d6d6d6;">Há mais de uma década transformando energia em eficiência</p>
+        </div>
       </div>
       <Knob @value="knobValueChange"></Knob>
     </section>
@@ -98,23 +113,52 @@ const knobValueChange = (value: number) => {
       <!-- One -->
       <section id="one" class="wrapper spotlight style1 opacity">
         <div class="inner">
-          <a href="#" class="image" style="pointer-events: none;"><img src="../../assets/images/brain.png" alt="" style="mix-blend-mode: color-dodge; opacity: .8;"/></a>
-          <div class="content">
+          <!-- <a href="#" class="image" style="pointer-events: none;"><img src="../../assets/images/brain.png" alt="" style="mix-blend-mode: color-dodge; opacity: .8;"/></a> -->
+          <div style="flex: 5;">
             <h2 class="major">Iluminação inteligente</h2>
-            <p>A iluminação das cidades mudou muito nos últimos anos, saindo de lâmpadas simples e gastonas para LEDs modernos e, agora, sistemas inteligentes. A ideia é usar sensores e redes sem fio para ajustar a luz automaticamente, de acordo com a necessidade do momento, como trânsito ou clima ruim. Isso não só economiza até 70% de energia, mas também deixa as ruas mais seguras e os espaços urbanos mais eficientes e sustentáveis. É uma forma prática de combinar tecnologia e sustentabilidade no dia a dia das cidades.</p>
+            <span style="font-size: 1.4rem; line-height: .7;">Energia sob medida: luz onde e quando necessário</span>
+            <p style="margin-top: 1rem; font-size: 1.2rem; line-height: 1.3;">A iluminação das cidades mudou muito nos últimos anos, saindo de lâmpadas simples e gastonas para LEDs modernos e, agora, <b>sistemas inteligentes</b>. 
+            <br/>A ideia é usar <b>sensores</b> e <b>redes sem fio</b> para ajustar a luz automaticamente, de acordo com a necessidade do momento, como trânsito ou clima ruim. Isso não só <b>economiza até 70% de energia</b>, mas também deixa as ruas mais seguras e os espaços urbanos mais <b>eficientes e sustentáveis</b>. <br/>É uma forma prática de combinar tecnologia e sustentabilidade no dia a dia das cidades.</p>
             <!-- <a href="#" class="special">Learn more</a> -->
           </div>
+
+
+          <div class="motivo" style="flex: 4; width: 100%;">
+            <div>
+              <i class="fa fa-bolt" aria-hidden="true"></i>
+              <div>
+                <h4>Economia de energia e eficiência de custos</h4>
+                <p>Nossa solução proporciona economia em até 70% do consumo de energia, ao ajustar automaticamente o brilho conforme a necessidade, evitando desperdícios comuns em postes tradicionais.</p>
+              </div>
+            </div>
+
+            <div>
+              <i class="fa fa-globe" aria-hidden="true"></i>
+              <div>
+                <h4>Respeito e sustentabilidade</h4>
+                <p>A iluminação inteligente reduz o consumo de energia e, consequentemente, as emissões de CO₂, ajudando as cidades a diminuir sua pegada de carbono, acelerar metas climáticas e proteger o meio ambiente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-video">
+            <img src="" alt="" class="placeholder-img">
+            <iframe src="https://player.vimeo.com/video/1116798805?&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" title="HTL" :onload="hidePlaceholder()">
+            </iframe>
+          <!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
         </div>
       </section>
 
       <!-- Two -->
       <section id="two" class="wrapper alt spotlight style2 opacity">
         <div class="inner">
-          <h2 class="major">Nossas soluções</h2>
+          <h2 class="major" style="font-size: 1.6rem; padding-bottom: 5px;">Nossas soluções</h2>
         </div>
         <div class="inner">
           <div style="margin-right: 40px;">
-            <VideoFliper imgSrc="/assets/images/eagle.png"></VideoFliper>
+            <!-- <VideoFliper imgSrc="/assets/images/eagle.png"></VideoFliper> -->
+             <EagleEye3></EagleEye3>
           </div>
           <!-- <a href="#" class="image" style="pointer-events: none;"><img src="../../assets/images/eagle.png" alt="" /></a> -->
           <div class="content">
@@ -127,9 +171,9 @@ const knobValueChange = (value: number) => {
 
       <!-- Three -->
       <section id="three" class="wrapper spotlight style3 opacity">
-        <div class="inner">
+        <div class="inner" style="flex-direction: row-reverse;">
           <div style="margin-left: 40px;">
-            <VideoFliper imgSrc="/assets/images/zhaga.png"></VideoFliper>
+            <EagleEyeZhaga></EagleEyeZhaga>
           </div>
           <!-- <a href="#" class="image" style="pointer-events: none;"><img src="../../assets/images/zhaga.png" alt="" /></a> -->
           <div class="content">

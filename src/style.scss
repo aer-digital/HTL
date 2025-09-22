@@ -112,16 +112,33 @@ body{
     }
 
     #banner{
-        height: 80vh;
+        height: 100vh;
+        max-height: 800px;
+
+        .inner{
+            display: flex;
+            gap: 5rem;
+
+            @media screen and (max-width: 968px) {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
 
         .logo {
             display: flex;
             justify-content: start;
+            opacity: .8;
 
             > img{
                 width: 30vw; 
                 margin: 50px 0;
             }
+        }
+
+        .title{
+            align-content: center;
         }
         
 
@@ -139,6 +156,9 @@ body{
 
     section#one{
         background-color: $primary;
+        padding-top: 3rem;
+        margin-bottom: 0;
+
         &:before{
             box-shadow: inset 0 -1px 0 0 $primary, 0 1px 0 0 $primary;
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23#{$Sprimary}%3B' /%3E%3C/svg%3E");
@@ -146,7 +166,79 @@ body{
     
         &:after{
             box-shadow: inset 0 -1px 0 0 $primary, 0 1px 0 0 $primary;
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23#{$Sprimary}%3B' /%3E%3C/svg%3E");
+            background-image: none;
+        }
+
+        .inner{
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 3rem;
+
+            @media (max-width: 968px) {
+                flex-direction: column;
+            }
+
+            .major{
+                font-size: 1.7rem;
+                margin-bottom: .5rem;
+                padding-bottom: 0;
+
+            }
+        }
+
+        .motivo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+        >div{
+                border-radius: 5px;
+                width: 100%;
+                // height: 150px;
+                background-color: rgba(17, 25, 40, 0.2);
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.125);
+                z-index: 2;
+                display: flex;
+                padding: 1.5rem;
+
+                i{
+                    font-size: 3rem;
+                    color: $secondary;
+                    margin-right: 1rem;
+                }
+
+                h4{
+                    font-size: 1.2rem;
+                    line-height: 1.3;
+                }
+
+                p{
+                    line-height: 1.1;
+                    margin: 0;
+                }
+            }
+        }
+
+        .bg-video{
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(180deg, #4f67b1, #4f67b122, );
+            // background: #4f67b144;
+
+            iframe{
+                position: relative;
+                aspect-ratio: 2/1;
+                width: 120%;
+                left: -10%;
+                bottom: -10px;
+                z-index: -1;
+                pointer-events: none;
+                mix-blend-mode: luminosity;
+            }
         }
     }
 
@@ -154,9 +246,12 @@ body{
         background-color: $primary-s1;
         margin-bottom: 0;
         z-index: 2;
+        margin-top: 0;
+        padding-top: 3rem;
+
         &:before{
-            box-shadow: inset 0 -1px 0 0 $primary-s1, 0 1px 0 0 $primary-s1;
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23#{$Sprimary-s1}%3B' /%3E%3C/svg%3E");
+            box-shadow: none;
+            background-image: none;
         }
     
         &:after{

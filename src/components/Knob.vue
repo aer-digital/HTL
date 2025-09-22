@@ -8,7 +8,7 @@
 <script setup lang="ts">
     import { ref, onMounted, watch, defineEmits } from 'vue';
 
-	const value = ref(90);
+	const value = ref(40);
 	const emit = defineEmits(['value']);
 
     onMounted(() => {
