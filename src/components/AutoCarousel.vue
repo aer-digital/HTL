@@ -2,7 +2,7 @@
   <div class="slider">
     <div class="slide-track">
       <div class="slide" v-for="(image, index) in 16" :key="index">
-        <img :src="`/assets/images/clients/${image}.png`" height="100" width="250" alt="" />
+        <img :src="`./assets/images/clients/${image}.png`" height="100" width="250" alt="" />
       </div>
     </div>
   </div>

@@ -1,1 +1,0 @@
-import{_ as n,b as o,e as r,f as t}from"./router-DRbWoJk-.js";const s={};function a(c,e){return t(),o("div",null,e[0]||(e[0]=[r("h1",null,"Comming Soon",-1)]))}const f=n(s,[["render",a]]);export{f as default};
