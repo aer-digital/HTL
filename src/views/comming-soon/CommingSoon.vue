@@ -1,11 +1,7 @@
-<template>
-    <div>
-        <h1>Comming Soon</h1>
-    </div>
-</template>
-<script setup lang="js">
-
+<script setup>
+import MaintenancePage from "../../components/MaintenancePage.vue";
 </script>
-<style lang="scss">
-    
-</style>
+
+<template>
+  <MaintenancePage />
+</template>
